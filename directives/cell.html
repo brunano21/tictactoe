@@ -1,0 +1,1 @@
+<button class="cell" ng-disabled="isTaken(cellObject);" ng-click="moveCellFunction({aCell: cellObject});" ng-class="[{true:'cell-'+cellObject.v}[true], {true: 'winning'}[cellObject.w]]">{{ cellObject.v }}</button>

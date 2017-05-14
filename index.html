@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="game">
+<head>
+	<title>TTT Code Challenge</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"/>
+	<style>
+		html, body {
+			font-size: 1.1em;
+		}
+
+		.cell {
+			width: 72px;
+			height: 72px;
+			min-width: 72px;
+			min-height: 72px;
+			background-color: #5596e6;
+			border-radius: 10px;
+			cursor: pointer;
+			color: #fff;
+			margin: 5px;
+			border: none;
+		}
+
+		.cell-X {
+			background-color: #b4e051;
+		}
+		.player-X {
+			color: #b4e051;
+		}
+		.cell-O {
+			background-color: #ff7832;
+		}
+		.player-O {
+			color: #ff7832;
+		}
+		.winning {
+			background-color: #008571;
+		}
+
+		.reset {
+			background-color:  #efc100;
+			border-radius: 5px;
+			border: none;
+			margin: 20px 10px;
+			padding: 10px 20px;
+		}
+	</style>
+
+	<script src="//code.angularjs.org/1.6.4/angular.min.js"></script>
+	<script src="app.js"></script>
+</head>
+<body>
+
+	<header>
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">Tic Tac Toe Game</a>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<div class="container">
+		<div ng-controller="gameCtrl">
+			<div class="row justify-content-center">
+				<h2 ng-hide="winner">It's <strong ng-class="{true:'player-'+currentPlayer}[true]"> {{ currentPlayer }}</strong>'s turn</h2>
+				<h2 ng-show="winner">{{winner}} won!</h2>
+			</div>
+			<div class="container"></div>
+				<row ng-repeat="row in board" row-object="row" move-row-function="move(aCell)"></row>
+		       	<div class="row justify-content-center">
+					<input type="button" class="reset" ng-click="newGame()" value="New Game" />
+	        	</div>
+        	</div>
+		</div>
+	</div>
+
+</body>
+</html>
